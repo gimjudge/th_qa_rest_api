@@ -2,22 +2,21 @@
 
 const express = require("express");
 const app =  express();
+const jsonParser = require("body-parser").json;
 
-
-app.use('/:noun',(req, res, next) => {
-    req.noun = req.params.noun;
+const jsonCheck = (req, res, next) => {
+    if ( req.body ) {
+        console.log("The sky is", req.body.color);
+    } else {
+        console.log("There is no body property on the request");
+    }
     next();
-});
-app.use((req, res, next) => {
-    req.myMessage = `The ${req.noun} is ${req.query.color}`;
-    console.log (req.myMessage);
-    next();
-});
+}
 
-app.use('/', (req, res, next) => {
-    console.log ('Root Route');
-    res.send(req.myMessage);
-});
+app.use(jsonCheck);
+app.use(jsonParser());
+app.use(jsonCheck);
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
