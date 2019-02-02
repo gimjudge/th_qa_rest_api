@@ -2,21 +2,13 @@
 
 const express = require("express");
 const app =  express();
+const routes =  require('./routes');
+
 const jsonParser = require("body-parser").json;
 
-const jsonCheck = (req, res, next) => {
-    if ( req.body ) {
-        console.log("The sky is", req.body.color);
-    } else {
-        console.log("There is no body property on the request");
-    }
-    next();
-}
-
-app.use(jsonCheck);
 app.use(jsonParser());
-app.use(jsonCheck);
 
+app.use("/questions", routes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
