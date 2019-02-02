@@ -1,0 +1,23 @@
+{
+  "name": "qa-rest-api",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000t\u0000h\u0000_\u0000q\u0000a\u0000_\u0000r\u0000e\u0000s\u0000t\u0000_\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gimjudge/th_qa_rest_api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gimjudge/th_qa_rest_api/issues"
+  },
+  "homepage": "https://github.com/gimjudge/th_qa_rest_api#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
