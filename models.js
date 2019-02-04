@@ -26,7 +26,7 @@ AnswerSchema.method("update", function(updates, callback) {
 AnswerSchema.method("vote", function(vote, callback) {
     if (vote === "up") {
         this.votes += 1;
-    } else if (vote === "up") {
+    } else if (vote === "down") {
         this.votes -= 1;
     }
     this.parent().save(callback);
@@ -35,7 +35,7 @@ AnswerSchema.method("vote", function(vote, callback) {
 let QuestionSchema = new Schema({
     text: String,
     createdAt: {type: Date, default: Date.now},
-    answer: [AnswerSchema]
+    answers: [AnswerSchema]
 });
 
 QuestionSchema.pre("Save", function(next) {
