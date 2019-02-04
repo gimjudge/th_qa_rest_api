@@ -10,6 +10,20 @@ const logger = require("morgan");
 app.use(logger("dev"));
 app.use(jsonParser());
 
+var mongoose =  require("mongoose");
+
+mongoose.connect ("mongodb://localhost:27017/qa", { useNewUrlParser: true });
+
+var db = mongoose.connection;
+
+db.on("error", (err) => {
+    console.error("connection error:", err);
+});
+
+db.once("open", () => {
+    console.log("connection successful");
+});
+
 app.use("/questions", routes);
 
 // Catch 404 and forward to error handler
